@@ -29,4 +29,25 @@ it should use today’s date to get the month and year.
 
 import sys
 import calendar
-from datetime import datetime
+from _datetime import datetime
+
+l = len(sys.argv)
+
+if l == 2:
+    month = datetime.now().month
+    year = int(sys.argv[1])
+
+elif l == 3:
+    month = int(sys.argv[1])
+    year = int(sys.argv[2])
+
+else:
+    month = datetime.now().month
+    year = datetime.now().year
+
+c = calendar.TextCalendar()
+
+if month is not None:
+    c.prmonth(year, month)
+else:
+    c.pryear(year)
